@@ -11,7 +11,33 @@
 		488994962E7C860600A5BBF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488994952E7C860600A5BBF2 /* ContentView.swift */; };
 		488994982E7C860A00A5BBF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488994972E7C860A00A5BBF2 /* Assets.xcassets */; };
 		4889949B2E7C860A00A5BBF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4889949A2E7C860A00A5BBF2 /* Preview Assets.xcassets */; };
+		488994A82E7C867300A5BBF2 /* CallDirectoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488994A72E7C867300A5BBF2 /* CallDirectoryHandler.swift */; };
+		488994AC2E7C867300A5BBF2 /* CallDirectoryExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 488994A52E7C867300A5BBF2 /* CallDirectoryExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		488994AA2E7C867300A5BBF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 488994882E7C860600A5BBF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 488994A42E7C867300A5BBF2;
+			remoteInfo = CallDirectoryExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		488994B02E7C867300A5BBF2 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				488994AC2E7C867300A5BBF2 /* CallDirectoryExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		488994902E7C860600A5BBF2 /* AreaCodeBlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AreaCodeBlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +45,22 @@
 		488994952E7C860600A5BBF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		488994972E7C860A00A5BBF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4889949A2E7C860A00A5BBF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		488994A52E7C867300A5BBF2 /* CallDirectoryExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CallDirectoryExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		488994A72E7C867300A5BBF2 /* CallDirectoryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallDirectoryHandler.swift; sourceTree = "<group>"; };
+		488994A92E7C867300A5BBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		488994B12E7C881F00A5BBF2 /* AreaCodeBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AreaCodeBlocker.entitlements; sourceTree = "<group>"; };
+		488994B22E7C889900A5BBF2 /* CallDirectoryExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallDirectoryExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4889948D2E7C860600A5BBF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		488994A22E7C867300A5BBF2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				488994922E7C860600A5BBF2 /* AreaCodeBlocker */,
+				488994A62E7C867300A5BBF2 /* CallDirectoryExtension */,
 				488994912E7C860600A5BBF2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				488994902E7C860600A5BBF2 /* AreaCodeBlocker.app */,
+				488994A52E7C867300A5BBF2 /* CallDirectoryExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +91,7 @@
 		488994922E7C860600A5BBF2 /* AreaCodeBlocker */ = {
 			isa = PBXGroup;
 			children = (
+				488994B12E7C881F00A5BBF2 /* AreaCodeBlocker.entitlements */,
 				488994932E7C860600A5BBF2 /* AreaCodeBlockerApp.swift */,
 				488994952E7C860600A5BBF2 /* ContentView.swift */,
 				488994972E7C860A00A5BBF2 /* Assets.xcassets */,
@@ -67,6 +108,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		488994A62E7C867300A5BBF2 /* CallDirectoryExtension */ = {
+			isa = PBXGroup;
+			children = (
+				488994B22E7C889900A5BBF2 /* CallDirectoryExtension.entitlements */,
+				488994A72E7C867300A5BBF2 /* CallDirectoryHandler.swift */,
+				488994A92E7C867300A5BBF2 /* Info.plist */,
+			);
+			path = CallDirectoryExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +128,34 @@
 				4889948C2E7C860600A5BBF2 /* Sources */,
 				4889948D2E7C860600A5BBF2 /* Frameworks */,
 				4889948E2E7C860600A5BBF2 /* Resources */,
+				488994B02E7C867300A5BBF2 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				488994AB2E7C867300A5BBF2 /* PBXTargetDependency */,
 			);
 			name = AreaCodeBlocker;
 			productName = AreaCodeBlocker;
 			productReference = 488994902E7C860600A5BBF2 /* AreaCodeBlocker.app */;
 			productType = "com.apple.product-type.application";
+		};
+		488994A42E7C867300A5BBF2 /* CallDirectoryExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 488994AD2E7C867300A5BBF2 /* Build configuration list for PBXNativeTarget "CallDirectoryExtension" */;
+			buildPhases = (
+				488994A12E7C867300A5BBF2 /* Sources */,
+				488994A22E7C867300A5BBF2 /* Frameworks */,
+				488994A32E7C867300A5BBF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CallDirectoryExtension;
+			productName = CallDirectoryExtension;
+			productReference = 488994A52E7C867300A5BBF2 /* CallDirectoryExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +168,9 @@
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					4889948F2E7C860600A5BBF2 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					488994A42E7C867300A5BBF2 = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -116,6 +189,7 @@
 			projectRoot = "";
 			targets = (
 				4889948F2E7C860600A5BBF2 /* AreaCodeBlocker */,
+				488994A42E7C867300A5BBF2 /* CallDirectoryExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +201,13 @@
 			files = (
 				4889949B2E7C860A00A5BBF2 /* Preview Assets.xcassets in Resources */,
 				488994982E7C860A00A5BBF2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		488994A32E7C867300A5BBF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +223,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		488994A12E7C867300A5BBF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				488994A82E7C867300A5BBF2 /* CallDirectoryHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		488994AB2E7C867300A5BBF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 488994A42E7C867300A5BBF2 /* CallDirectoryExtension */;
+			targetProxy = 488994AA2E7C867300A5BBF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4889949C2E7C860A00A5BBF2 /* Debug */ = {
@@ -262,8 +359,10 @@
 		4889949F2E7C860A00A5BBF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AreaCodeBlocker/AreaCodeBlocker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AreaCodeBlocker/Preview Content\"";
@@ -284,15 +383,17 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		488994A02E7C860A00A5BBF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AreaCodeBlocker/AreaCodeBlocker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AreaCodeBlocker/Preview Content\"";
@@ -311,6 +412,60 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.manceps.AreaCodeBlocker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		488994AE2E7C867300A5BBF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = CallDirectoryExtension/CallDirectoryExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UY8VPSD484;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CallDirectoryExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CallDirectoryExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manceps.AreaCodeBlocker.CallDirectoryExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		488994AF2E7C867300A5BBF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGN_ENTITLEMENTS = CallDirectoryExtension/CallDirectoryExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UY8VPSD484;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CallDirectoryExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CallDirectoryExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.manceps.AreaCodeBlocker.CallDirectoryExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -334,6 +489,15 @@
 			buildConfigurations = (
 				4889949F2E7C860A00A5BBF2 /* Debug */,
 				488994A02E7C860A00A5BBF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		488994AD2E7C867300A5BBF2 /* Build configuration list for PBXNativeTarget "CallDirectoryExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				488994AE2E7C867300A5BBF2 /* Debug */,
+				488994AF2E7C867300A5BBF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
