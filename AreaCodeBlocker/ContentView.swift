@@ -8,44 +8,86 @@
 import SwiftUI
 import CallKit
 
+// Defines the structure for a blocked area code item
+struct BlockedAreaCode: Codable, Hashable, Identifiable {
+    let id = UUID() // To make it identifiable for SwiftUI lists
+    let code: String
+    var blockCalls: Bool
+    var blockTexts: Bool
+}
+
 // Main view for the application
 struct ContentView: View {
-    // State variable to hold the list of blocked area codes
-    @State private var areaCodes: [String] = []
+    // State variable to hold the list of blocked items
+    @State private var blockedItems: [BlockedAreaCode] = []
     // State variable for the new area code input
     @State private var newAreaCode: String = ""
-    // State variable to show alerts to the user
+    // State for the toggles
+    @State private var shouldBlockCalls = true
+    @State private var shouldBlockTexts = true
+    
+    // State variables to show alerts to the user
     @State private var showingAlert = false
     @State private var alertMessage = ""
     
     // The key for saving data in shared UserDefaults
     private let userDefaultsKey = "blockedAreaCodes"
     // The identifier for our App Group
-    private let appGroupIdentifier = "group.com.manceps.areacodeblocker" // IMPORTANT: Change this!
+    private let appGroupIdentifier = "group.com.yourdomain.areacodeblocker" // IMPORTANT: Change this!
 
     var body: some View {
         NavigationView {
             VStack {
                 // Input section for adding new area codes
-                HStack {
+                VStack(spacing: 15) {
                     TextField("Enter 3-digit area code", text: $newAreaCode)
                         .keyboardType(.numberPad)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(10)
-                
+
+                    Toggle(isOn: $shouldBlockCalls) {
+                        Text("Block Calls")
+                    }
+                    
+                    Toggle(isOn: $shouldBlockTexts) {
+                        Text("Block Texts")
+                    }
+
                     Button(action: addAreaCode) {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.green)
+                        HStack {
+                            Image(systemName: "plus.circle.fill")
+                            Text("Add Area Code")
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                     }
                 }
                 .padding()
 
                 // List of currently blocked area codes
                 List {
-                    ForEach(areaCodes, id: \.self) { code in
-                        Text(code)
+                    ForEach($blockedItems) { $item in
+                        HStack {
+                            Text(item.code).font(.headline)
+                            Spacer()
+                            VStack(alignment: .trailing) {
+                                Text("Calls: \(item.blockCalls ? "Blocked" : "Allowed")")
+                                    .foregroundColor(item.blockCalls ? .red : .green)
+                                Text("Texts: \(item.blockTexts ? "Blocked" : "Allowed")")
+                                    .foregroundColor(item.blockTexts ? .red : .green)
+                            }
+                        }
+                        // Allow toggling directly from the list view
+                        .onTapGesture {
+                            if let index = blockedItems.firstIndex(where: { $0.id == item.id }) {
+                                blockedItems[index].blockCalls.toggle()
+                                saveAndReloadExtensions()
+                            }
+                        }
                     }
                     .onDelete(perform: deleteAreaCode)
                 }
@@ -53,10 +95,10 @@ struct ContentView: View {
                 .toolbar {
                     EditButton()
                 }
-                .onAppear(perform: loadAreaCodes)
+                .onAppear(perform: loadBlockedItems)
                 
                 // Instructions for the user
-                Text("To enable blocking:\nGo to Settings > Phone > Call Blocking & Identification, and turn on the switch for 'AreaCodeBlocker'.")
+                Text("Enable in:\n- Settings > Phone > Call Blocking\n- Settings > Messages > Unknown & Spam")
                     .padding()
                     .multilineTextAlignment(.center)
                     .foregroundColor(.gray)
@@ -69,28 +111,46 @@ struct ContentView: View {
 
     // --- Data Management Functions ---
 
-    /// Loads the saved area codes from shared UserDefaults
-    private func loadAreaCodes() {
-        if let userDefaults = UserDefaults(suiteName: appGroupIdentifier) {
-            self.areaCodes = userDefaults.stringArray(forKey: userDefaultsKey) ?? []
+    /// Loads the saved items from shared UserDefaults
+    private func loadBlockedItems() {
+        guard let userDefaults = UserDefaults(suiteName: appGroupIdentifier),
+              let data = userDefaults.data(forKey: userDefaultsKey) else {
+            return
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            self.blockedItems = try decoder.decode([BlockedAreaCode].self, from: data)
+        } catch {
+            print("Error decoding blocked items: \(error)")
         }
     }
 
-    /// Saves the current list of area codes to shared UserDefaults and reloads the extension
-    private func saveAndReload() {
-        if let userDefaults = UserDefaults(suiteName: appGroupIdentifier) {
-            userDefaults.set(areaCodes, forKey: userDefaultsKey)
+    /// Saves the current list to shared UserDefaults and reloads the extensions
+    private func saveAndReloadExtensions() {
+        guard let userDefaults = UserDefaults(suiteName: appGroupIdentifier) else {
+            print("Could not access shared UserDefaults. Check your App Group identifier.")
+            return
+        }
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(blockedItems)
+            userDefaults.set(data, forKey: userDefaultsKey)
             
-            // Tell the system to reload our Call Directory Extension
-            CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.manceps.areacodeblocker.CallDirectoryExtension") { error in
+            // Reload Call Directory Extension
+            CXCallDirectoryManager.sharedInstance.reloadExtension(withIdentifier: "com.yourdomain.areacodeblocker.CallDirectoryExtension") { error in
                 if let error = error {
-                    print("Error reloading extension: \(error.localizedDescription)")
+                    print("Error reloading call extension: \(error.localizedDescription)")
                 } else {
-                    print("Extension reloaded successfully.")
+                    print("Call extension reloaded successfully.")
                 }
             }
-        } else {
-            print("Could not access shared UserDefaults. Check your App Group identifier.")
+            // The message extension will read this updated data automatically
+            // when the next message arrives, so no direct reload call is needed.
+            
+        } catch {
+            print("Error encoding blocked items: \(error)")
         }
     }
     
@@ -103,23 +163,27 @@ struct ContentView: View {
             return
         }
         
-        if !areaCodes.contains(newAreaCode) {
-            areaCodes.append(newAreaCode)
-            areaCodes.sort() // Keep the list sorted
-            saveAndReload()
+        if !shouldBlockCalls && !shouldBlockTexts {
+            alertMessage = "You must select to block either calls or texts (or both)."
+            showingAlert = true
+            return
+        }
+        
+        if !blockedItems.contains(where: { $0.code == newAreaCode }) {
+            let newItem = BlockedAreaCode(code: newAreaCode, blockCalls: shouldBlockCalls, blockTexts: shouldBlockTexts)
+            blockedItems.append(newItem)
+            blockedItems.sort(by: { $0.code < $1.code }) // Keep the list sorted
+            saveAndReloadExtensions()
+        } else {
+            alertMessage = "This area code is already in the list."
+            showingAlert = true
         }
         newAreaCode = "" // Clear the text field
     }
 
     /// Deletes an area code from the list
     private func deleteAreaCode(at offsets: IndexSet) {
-        areaCodes.remove(atOffsets: offsets)
-        saveAndReload()
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+        blockedItems.remove(atOffsets: offsets)
+        saveAndReloadExtensions()
     }
 }
