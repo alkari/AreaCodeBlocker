@@ -13,6 +13,7 @@
 		4803127F2F01D30C00E2131F /* BlockedAreaCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */; };
 		480312802F01D30C00E2131F /* BlockedAreaCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */; };
 		480312812F01D30C00E2131F /* BlockedAreaCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */; };
+		48CC00012F02000000CC0001 /* BlockedNumbersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC00002F02000000CC0001 /* BlockedNumbersView.swift */; };
 		480312832F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = 480312822F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md */; };
 		48641C632E7CCA9A00E393C5 /* MessageFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48641C622E7CCA9A00E393C5 /* MessageFilterExtension.swift */; };
 		48641C672E7CCA9B00E393C5 /* MessageFilterExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 48641C602E7CCA9A00E393C5 /* MessageFilterExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		4803127A2F01D2E900E2131F /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedAreaCode.swift; sourceTree = "<group>"; };
+		48CC00002F02000000CC0001 /* BlockedNumbersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedNumbersView.swift; sourceTree = "<group>"; };
 		480312822F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IOS_COMPATIBILITY_FIX.md; sourceTree = "<group>"; };
 		48641C602E7CCA9A00E393C5 /* MessageFilterExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessageFilterExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		48641C622E7CCA9A00E393C5 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				4803127A2F01D2E900E2131F /* AppConfiguration.swift */,
 				4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */,
+				48CC00002F02000000CC0001 /* BlockedNumbersView.swift */,
 				488994B12E7C881F00A5BBF2 /* AreaCodeBlocker.entitlements */,
 				488994932E7C860600A5BBF2 /* AreaCodeBlockerApp.swift */,
 				488994952E7C860600A5BBF2 /* ContentView.swift */,
@@ -312,6 +315,7 @@
 			files = (
 				480312802F01D30C00E2131F /* BlockedAreaCode.swift in Sources */,
 				4803127D2F01D2E900E2131F /* AppConfiguration.swift in Sources */,
+				48CC00012F02000000CC0001 /* BlockedNumbersView.swift in Sources */,
 				488994962E7C860600A5BBF2 /* ContentView.swift in Sources */,
 				488994942E7C860600A5BBF2 /* AreaCodeBlockerApp.swift in Sources */,
 			);
