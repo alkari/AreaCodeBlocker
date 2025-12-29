@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4803127B2F01D2E900E2131F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127A2F01D2E900E2131F /* AppConfiguration.swift */; };
+		4803127C2F01D2E900E2131F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127A2F01D2E900E2131F /* AppConfiguration.swift */; };
+		4803127D2F01D2E900E2131F /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127A2F01D2E900E2131F /* AppConfiguration.swift */; };
+		4803127F2F01D30C00E2131F /* BlockedAreaCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */; };
+		480312802F01D30C00E2131F /* BlockedAreaCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */; };
+		480312812F01D30C00E2131F /* BlockedAreaCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */; };
+		480312832F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md in Resources */ = {isa = PBXBuildFile; fileRef = 480312822F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md */; };
 		48641C632E7CCA9A00E393C5 /* MessageFilterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48641C622E7CCA9A00E393C5 /* MessageFilterExtension.swift */; };
 		48641C672E7CCA9B00E393C5 /* MessageFilterExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 48641C602E7CCA9A00E393C5 /* MessageFilterExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		488994942E7C860600A5BBF2 /* AreaCodeBlockerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488994932E7C860600A5BBF2 /* AreaCodeBlockerApp.swift */; };
@@ -50,6 +57,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4803127A2F01D2E900E2131F /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedAreaCode.swift; sourceTree = "<group>"; };
+		480312822F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = IOS_COMPATIBILITY_FIX.md; sourceTree = "<group>"; };
 		48641C602E7CCA9A00E393C5 /* MessageFilterExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MessageFilterExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		48641C622E7CCA9A00E393C5 /* MessageFilterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageFilterExtension.swift; sourceTree = "<group>"; };
 		48641C642E7CCA9A00E393C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,6 +74,9 @@
 		488994A92E7C867300A5BBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		488994B12E7C881F00A5BBF2 /* AreaCodeBlocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AreaCodeBlocker.entitlements; sourceTree = "<group>"; };
 		488994B22E7C889900A5BBF2 /* CallDirectoryExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CallDirectoryExtension.entitlements; sourceTree = "<group>"; };
+		48DD0A4D2F01F2320055B199 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		48DD0A4E2F01F2650055B199 /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = TestPlan.xctestplan; path = AreaCodeBlocker/TestPlan.xctestplan; sourceTree = "<group>"; };
+		48DD0A4F2F01F2BB0055B199 /* CallDirectoryExtension.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CallDirectoryExtension.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +117,9 @@
 		488994872E7C860600A5BBF2 = {
 			isa = PBXGroup;
 			children = (
+				48DD0A4F2F01F2BB0055B199 /* CallDirectoryExtension.xctestplan */,
+				48DD0A4E2F01F2650055B199 /* TestPlan.xctestplan */,
+				48DD0A4D2F01F2320055B199 /* TestPlan.xctestplan */,
 				488994922E7C860600A5BBF2 /* AreaCodeBlocker */,
 				488994A62E7C867300A5BBF2 /* CallDirectoryExtension */,
 				48641C612E7CCA9A00E393C5 /* MessageFilterExtension */,
@@ -124,11 +140,14 @@
 		488994922E7C860600A5BBF2 /* AreaCodeBlocker */ = {
 			isa = PBXGroup;
 			children = (
+				4803127A2F01D2E900E2131F /* AppConfiguration.swift */,
+				4803127E2F01D30C00E2131F /* BlockedAreaCode.swift */,
 				488994B12E7C881F00A5BBF2 /* AreaCodeBlocker.entitlements */,
 				488994932E7C860600A5BBF2 /* AreaCodeBlockerApp.swift */,
 				488994952E7C860600A5BBF2 /* ContentView.swift */,
 				488994972E7C860A00A5BBF2 /* Assets.xcassets */,
 				488994992E7C860A00A5BBF2 /* Preview Content */,
+				480312822F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md */,
 			);
 			path = AreaCodeBlocker;
 			sourceTree = "<group>";
@@ -261,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480312832F01D46800E2131F /* IOS_COMPATIBILITY_FIX.md in Resources */,
 				4889949B2E7C860A00A5BBF2 /* Preview Assets.xcassets in Resources */,
 				488994982E7C860A00A5BBF2 /* Assets.xcassets in Resources */,
 			);
@@ -280,6 +300,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4803127F2F01D30C00E2131F /* BlockedAreaCode.swift in Sources */,
+				4803127B2F01D2E900E2131F /* AppConfiguration.swift in Sources */,
 				48641C632E7CCA9A00E393C5 /* MessageFilterExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +310,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480312802F01D30C00E2131F /* BlockedAreaCode.swift in Sources */,
+				4803127D2F01D2E900E2131F /* AppConfiguration.swift in Sources */,
 				488994962E7C860600A5BBF2 /* ContentView.swift in Sources */,
 				488994942E7C860600A5BBF2 /* AreaCodeBlockerApp.swift in Sources */,
 			);
@@ -297,6 +321,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480312812F01D30C00E2131F /* BlockedAreaCode.swift in Sources */,
+				4803127C2F01D2E900E2131F /* AppConfiguration.swift in Sources */,
 				488994A82E7C867300A5BBF2 /* CallDirectoryHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +522,7 @@
 				DEVELOPMENT_TEAM = UY8VPSD484;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -527,6 +554,7 @@
 				DEVELOPMENT_TEAM = UY8VPSD484;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

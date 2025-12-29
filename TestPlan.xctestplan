@@ -1,0 +1,18 @@
+{
+  "configurations" : [
+    {
+      "id" : "EAD38201-2333-4DED-88BA-CE1CD379C9C1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
