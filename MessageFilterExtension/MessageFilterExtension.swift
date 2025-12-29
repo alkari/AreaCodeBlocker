@@ -60,7 +60,7 @@ extension MessageFilterExtension: ILMessageFilterQueryHandling {
             }
 
             response.action = .junk
-            response.subAction = .none
+            // Note: subAction is iOS 16+ only, omitting for iOS 13+ compatibility
         } else {
             NSLog("💬 [MessageFilter] Area code \(areaCode) not blocked - allowing")
             response.action = .allow

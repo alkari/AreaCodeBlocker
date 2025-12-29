@@ -10,7 +10,7 @@ import Foundation
 enum AppConfiguration {
     /// The App Group identifier for sharing data between the app and extensions
     /// Must match the App Group registered in Apple Developer Portal
-    static let appGroupIdentifier = "group.com.manceps.AreaCodeBlocker.app"
+    static let appGroupIdentifier = "group.com.manceps.areacodeblocker"
 
     /// UserDefaults key for storing blocked area codes
     static let blockedAreaCodesKey = "blockedAreaCodes"
